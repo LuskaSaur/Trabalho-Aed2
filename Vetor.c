@@ -44,7 +44,7 @@ void PreencheVetorDesordenado(int n, int v[]){
 		v[i] = rand()%100000 + 1;
 }
 
-void CriaListaEVetorIguais(int n, ListaEncadeada lista, int v[]){
+void CriaListaEVetorIguais(int n, ListaEncadeada *lista, int v[]){
 	for(int i=0; i<n; i++){
 		int valor = rand()%100000 + 1;
 		v[i] = valor;
