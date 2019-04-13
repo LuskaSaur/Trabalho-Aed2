@@ -2,11 +2,12 @@
 #include "stdio.h"
 #include "Vetor.h"
 #include <time.h>
+#include <stdlib.h>
 
 int main(){
- int *v,chave[30];
+ int *vetor1,chave[30];
  int tam = 1000000;
- v = (* int)malloc(1000000*sizeof(int));	
+ vetor1 = (int *)malloc(1000000*sizeof(int));	
  clock_t tempo1,tempo2;
  double media =0;
  double tempo[30];
@@ -45,7 +46,7 @@ for(int i =0;i<30;i++){
  	media +=tempo[i];
  }
  printf("\n%lf\n",(media/30));
- free(v);	
+ free(vetor1);	
 }
 
 
