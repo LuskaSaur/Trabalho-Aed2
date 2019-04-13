@@ -1,40 +1,10 @@
 #include "Vetor.h"
 #include <stdlib.h>
-
-void CriaListaEncadeada(ListaEncadeada *lista){
-	lista->prim = NULL;
-}
-
-Node* CriaNode(int newDado){
-	Node *aux;
-	aux = (Node*)malloc(sizeof(Node));
-	aux->prox = NULL;
-	aux->dado = newDado;
-	return aux;
-}
-
-void CriaNoListaEncadeada(ListaEncadeada *lista, int newDado){
-	Node *i = lista->prim, *aux;
-	if(i){
-		while(i->prox) 
-			i = i->prox;
-		i->prox = CriaNode(newDado);
-	}
-	else
-		lista->prim = CriaNode(newDado);
-}
-
-int BuscaSequencialListaEncadeada(int chave, ListaEncadeada lista){
-	for(Node* i = lista.prim; ; i = i->prox){
-		if(!i)
-			break;
-		if(i->dado == chave)
-			return 1;
-	}
-	return 0;
-}
+#include <time.h>
 
 void PreencheVetorOrdenado(int n, int v[]){
+	clock_t t;
+	srand((unsigned)time(t));
 	for(int i=0; i<n; i++)
 		v[i] =  (i>0)?(v[i-1] + rand()%10+1):(rand()%10+1);
 }
@@ -44,13 +14,6 @@ void PreencheVetorDesordenado(int n, int v[]){
 		v[i] = rand()%100000 + 1;
 }
 
-void CriaListaEVetorIguais(int n, ListaEncadeada *lista, int v[]){
-	for(int i=0; i<n; i++){
-		int valor = rand()%100000 + 1;
-		v[i] = valor;
-		CriaNoListaEncadeada(&lista, valor);
-	}
-}
 
 int BuscaBinariaVetor(int chave, int n, int v[]){
 	int ini = 0, fim = n-1, meio;
